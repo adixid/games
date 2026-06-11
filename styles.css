@@ -1,0 +1,152 @@
+:root {
+--red-colour: rgb(105, 13, 33);
+--green-colour: rgb(13, 78, 7);
+--blue-colour: rgb(13, 22, 105);
+}
+
+*,*::before,*::after {
+  box-sizing:border-box;
+  margin:0;
+  padding:0
+  }
+
+html, body {
+  margin: 0;
+  overflow: hidden;
+  height: 100dvh;
+  width: 100vw;
+}
+
+body {
+  background-color: rgb(20, 17, 31);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/*mobile resolution*/
+.main {
+  width: 100vw;
+  height: 100dvh;
+  border-radius: 15px;
+  background-color: rgb(32, 29, 43);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  color: rgb(199, 199, 199);
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+} 
+
+.gameselector {
+  transition: 0.3s;
+  margin-top: 20px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px rgb(255, 255, 255) solid;
+  width: 100%;
+  height: 15dvh;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.title {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+#lingo {
+  background-color: var(--red-colour);
+  box-shadow: 0 10px 30px var(--red-colour);
+}  
+
+#mastermind {
+  background-color: var(--green-colour);
+  box-shadow: 0 10px 30px var(--green-colour);
+}  
+
+#stopwatch {
+  background-color: var(--blue-colour);
+  box-shadow: 0 10px 30px var(--blue-colour);
+}  
+
+.gameselector:hover {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#lingo:hover {
+  background-color: rgb(138, 27, 51);
+}
+
+#mastermind:hover {
+  background-color: rgb(26, 95, 19);
+}
+
+#stopwatch:hover {
+  background-color: rgb(30, 39, 119);
+}
+
+
+
+/*desktop resolution*/
+@media (min-width: 1280px) {
+  .main {
+    height: 600px;
+    width: 400px;
+    min-height: unset;
+    font-weight: normal;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+  }    
+
+  .gameselector {
+    height: 80px;  
+    width: 80%;
+    color: rgb(233, 233, 233);
+  }  
+}
+
+/* opening animation */
+.main, .title, #lingo, #mastermind, #stopwatch {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.main {
+  animation-delay: 0.1s;
+}
+.title {
+  animation-delay: 0.2s;
+}
+
+#lingo {
+  animation-delay: 0.3s;
+}
+
+#mastermind {
+  animation-delay: 0.4s;
+}
+
+#stopwatch {
+  animation-delay: 0.5s;
+}

@@ -2,6 +2,7 @@
 --red-colour: rgb(105, 13, 33);
 --green-colour: rgb(13, 78, 7);
 --blue-colour: rgb(13, 22, 105);
+--selected-colour: rgb(224, 140, 14);
 }
 
 *,*::before,*::after {
@@ -34,7 +35,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Poppins', sans-serif;
   font-size: 40px;
   color: rgb(199, 199, 199);
   font-family: 'Courier New', Courier, monospace;
@@ -42,7 +42,7 @@ body {
 } 
 
 .gameselector {
-  transition: 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s;
   margin-top: 20px;
   border-radius: 30px;
   display: flex;
@@ -52,6 +52,8 @@ body {
   width: 100%;
   height: 15dvh;
   text-shadow: 2px 2px 4px #000000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .title {
@@ -79,6 +81,10 @@ body {
   cursor: pointer;
 }
 
+.gameselector:active {
+  transition: 0.3s;
+}
+
 #lingo:hover {
   background-color: rgb(138, 27, 51);
 }
@@ -91,7 +97,10 @@ body {
   background-color: rgb(30, 39, 119);
 }
 
-
+#lingo:active, #mastermind:active, #stopwatch:active {
+  background-color: var(--selected-colour);
+  box-shadow: 0 10px 30px var(--selected-colour);
+}
 
 /*desktop resolution*/
 @media (min-width: 1280px) {
@@ -109,44 +118,4 @@ body {
     width: 80%;
     color: rgb(233, 233, 233);
   }  
-}
-
-/* opening animation */
-.main, .title, #lingo, #mastermind, #stopwatch {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.5s forwards;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.main {
-  animation-delay: 0.1s;
-}
-.title {
-  animation-delay: 0.2s;
-}
-
-#lingo {
-  animation-delay: 0.3s;
-}
-
-#mastermind {
-  animation-delay: 0.4s;
-}
-
-#stopwatch {
-  animation-delay: 0.5s;
 }
